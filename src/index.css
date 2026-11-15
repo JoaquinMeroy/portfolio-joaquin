@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@theme {
+  --color-navy-950: #0a1428;
+  --color-navy-900: #0f1e3a;
+  --color-navy-800: #172a4d;
+  --color-navy-700: #243a63;
+  --color-ink: #eaf0fa;
+  --color-muted: #8ea0bf;
+  --color-accent: #4f8cff;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+html {
+  background: var(--color-navy-950);
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-navy-950);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+dialog.detail[open] {
+  animation: dialog-in 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+dialog.detail[open]::backdrop {
+  animation: dialog-fade 280ms ease-out;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+}
+@keyframes dialog-fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog.detail[open],
+  dialog.detail[open]::backdrop,
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
